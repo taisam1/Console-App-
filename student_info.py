@@ -10,7 +10,7 @@ print("d. Delete student information")
 option = input("Select an option (a-d): ")
 
 
-if option == "a":
+if option.lower()== "a":
     matric_number = input("Enter your matric number: ")
     email = input("Enter your email address: ")
     department = input("Enter your department: ")
@@ -31,7 +31,7 @@ if option == "a":
 
     print("Student information inserted successfully.")
 
-elif option == "b":
+elif option.lower() == "b":
     with sqlite3.connect("student_info.db") as conn:
         cursor = conn.cursor()
         cursor.execute("SELECT * FROM students")
@@ -46,7 +46,7 @@ elif option == "b":
                 print(f"Faculty: {student[5]}")
         else:
             print("No students found.")
-elif option == "c":
+elif option.lower() == "c":
     matric_number = input("Enter the matric number of the student to update: ")
     new_email = input("Enter the new email address: ")
     new_department = input("Enter the new department: ")
@@ -69,7 +69,7 @@ elif option == "c":
             print("Student information updated successfully.")
         else:
             print("No student found with that matric number.")
-elif option == "d":
+elif option.lower() == "d":
     matric_number = input("Enter the matric number of the student to delete: ")
 
     with sqlite3.connect("student_info.db") as conn:
